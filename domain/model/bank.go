@@ -2,6 +2,7 @@ package model
 
 import (
 	uiid "github.com/satori/go.uuid"
+	"github.com/asaskevich/govalidator"
 	"time"
 )
 

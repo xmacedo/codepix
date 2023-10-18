@@ -1,4 +1,13 @@
 package model
+import (
+	"time"
+	"github.com/asaskevich/govalidator"
+	uuid "github.com/satori/go.uuid"
+)
+
+func init() {
+	govalidator.SetFieldsRequiredByDefault(true)
+}
 
 type Account struct{
 	Base `valid:"required"`

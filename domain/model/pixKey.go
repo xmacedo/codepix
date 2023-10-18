@@ -1,5 +1,12 @@
 package model
 
+import (
+	"errors"
+	"github.com/asaskevich/govalidator"
+	uuid "github.com/satori/go.uuid"
+	"time"
+)
+
 type PixKeyRepositoryInterface interface {
 	Register(pixKey *PixKey) (*PixKey, error)
 	FindKeyByKind(key string, kind string) (*PixKey, error)
