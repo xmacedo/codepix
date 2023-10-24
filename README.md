@@ -28,3 +28,25 @@ Utilizamos Docker para que todos os serviços que utilizaremos fiquem disponíve
 - Criador dos tópicos a serem utilizados pelo Kafka
 - Confluent control center
 - ZooKeeper
+
+### Comandos para o Docker
+
+#### Sobe os container
+
+`docker-compose up -d`
+
+#### ver os containers que estao funcionando
+
+`docker-compose ps`
+
+#### acessar o container nome: codeflix_app_1
+
+`docker exec -it codeflix-app-1 bash`
+
+### iniciar go
+
+`go mod init github.com/xmacedo/devfullcycle/codepix-go`
+
+### Gerar os arquivos proto
+
+`protoc --go_out=application/grpc/pb --go_opt=paths=source_relative --go-grpc_out=application/grpc/pb --go-grpc_opt=paths=source_relative --proto_path=application/grpc/protofiles application/grpc/protofiles/\*.proto`
