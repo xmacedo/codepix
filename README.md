@@ -49,6 +49,10 @@ Utilizamos Docker para que todos os serviços que utilizaremos fiquem disponíve
 
 ### comandos para o GO
 
+#### instalar gRPC go
+
+https://grpc.io/docs/languages/go/quickstart/
+
 #### iniciar go
 
 `go mod init github.com/xmacedo/devfullcycle/codepix-go`
@@ -63,4 +67,4 @@ Utilizamos Docker para que todos os serviços que utilizaremos fiquem disponíve
 
 #### Gerar os arquivos proto
 
-`protoc --go_out=application/grpc/pb --go_opt=paths=source_relative --go-grpc_out=application/grpc/pb --go-grpc_opt=paths=source_relative --proto_path=application/grpc/protofiles application/grpc/protofiles/\*.proto`
+`protoc --go_out=application/grpc/pb --go_opt=paths=source_relative --go-grpc_out=application/grpc/pb --go-grpc_opt=paths=source_relative --proto_path=application/grpc/protofiles application/grpc/protofiles/*.proto`

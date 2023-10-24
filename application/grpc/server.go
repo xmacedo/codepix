@@ -2,8 +2,8 @@ package grpc
 
 import (
 	"fmt"
-	"github.com/xmacedo/codepix/domain/model"
-	"github.com/xmacedo/codepix/application/grpc/pb"
+	// "github.com/xmacedo/codepix/domain/model"
+	//"github.com/xmacedo/codepix/application/grpc/pb"
 	"github.com/xmacedo/codepix/application/usecase"
 	"github.com/xmacedo/codepix/infrastructure/repository"
 	"github.com/jinzhu/gorm"

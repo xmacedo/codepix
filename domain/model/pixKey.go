@@ -8,7 +8,7 @@ import (
 )
 
 type PixKeyRepositoryInterface interface {
-	Register(pixKey *PixKey) (*PixKey, error)
+	RegisterKey(pixKey *PixKey) (*PixKey, error)
 	FindKeyByKind(key string, kind string) (*PixKey, error)
 	AddBank(bank *Bank) error
 	AddAccount(account *Account) error
@@ -18,14 +18,14 @@ type PixKeyRepositoryInterface interface {
 type PixKey struct{
 	Base      `valid:"required"`
 	Kind      string   `json:"kind" valid:"notnull"`
-	Key       *Bank    `json:"key" valid:"notnull"`
+	Key       string    `json:"key" valid:"notnull"`
 	AccountID string   `gorm:"column:account_id;type:uuid;not null" valid:"-"`
 	Account   *Account `valid: "-"`
 	Status    string   `json:"status" valid:"notnull"`
 }
 
 func (pixKey *PixKey) isValid() error {
-	_, err := govalidator.ValidateStruct(account)
+	_, err := govalidator.ValidateStruct(pixKey)
 
 	if pixKey.Kind != "email" && pixKey.Kind != "cpf" {
 		return errors.New("invalid type of key")
@@ -47,6 +47,7 @@ func NewPixKey(kind string, account *Account, key string) (*PixKey, error) {
 		Kind:    kind,
 		Key:     key,
 		Account: account,
+		AccountID: account.ID,
 		Status:  "active",
 	}
 
