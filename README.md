@@ -29,6 +29,8 @@ Utilizamos Docker para que todos os serviços que utilizaremos fiquem disponíve
 - Confluent control center
 - ZooKeeper
 
+---
+
 ### Comandos para o Docker
 
 #### Sobe os container
@@ -43,10 +45,22 @@ Utilizamos Docker para que todos os serviços que utilizaremos fiquem disponíve
 
 `docker exec -it codeflix-app-1 bash`
 
-### iniciar go
+---
+
+### comandos para o GO
+
+#### iniciar go
 
 `go mod init github.com/xmacedo/devfullcycle/codepix-go`
 
-### Gerar os arquivos proto
+#### fazer o download das dependencias necessárias
+
+`go mod tidy`
+
+---
+
+### Comandos para o ProtoBuff
+
+#### Gerar os arquivos proto
 
 `protoc --go_out=application/grpc/pb --go_opt=paths=source_relative --go-grpc_out=application/grpc/pb --go-grpc_opt=paths=source_relative --proto_path=application/grpc/protofiles application/grpc/protofiles/\*.proto`
